@@ -3,10 +3,11 @@
 	bootstrap="tests/legacy/bootstrap.php"
 	backupGlobals="false"
 	colors="true"
+	convertDeprecationsToExceptions="true"
 	convertErrorsToExceptions="true"
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
-	verbose="true"
+	verbose="false"
 	>
 	<testsuites>
 		<testsuite name="WooCommerce Test Suite">

@@ -1,5 +1,7 @@
 <?php
 
+use Automattic\WooCommerce\Utilities\ArrayUtil;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
@@ -414,7 +416,11 @@ class WC_Admin_Report {
 		$class = strtolower( get_class( $this ) );
 
 		if ( ! isset( self::$cached_results[ $class ] ) ) {
-			self::$cached_results[ $class ] = get_transient( strtolower( get_class( $this ) ) );
+			self::$cached_results[ $class ] = get_transient( $class );
+		}
+
+		if ( false === self::$cached_results[ $class ] ) {
+			self::$cached_results[ $class ] = array();
 		}
 
 		self::add_update_transients_hook();
